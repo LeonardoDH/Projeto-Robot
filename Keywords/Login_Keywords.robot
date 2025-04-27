@@ -11,3 +11,4 @@ Login
     Wait Until Element Is Visible    ${CAMPO_SENHA}
     Input Password    ${CAMPO_SENHA}    ${senha}
     Click Element    ${BOTAO_LOGIN}
+    Sleep    3s

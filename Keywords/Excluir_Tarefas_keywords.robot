@@ -9,3 +9,4 @@ Excluir tarefa
     Click Element    ${BOTAO_CONFIRMAR_EXCLUSAO}
     Sleep            3s
     Close Browser
+    

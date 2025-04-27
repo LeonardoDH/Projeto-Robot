@@ -1,129 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-04-26T10:09:43.801641" rpa="false" schemaversion="5">
-<suite id="s1" name="Desktop" source="c:\Users\dh18j\Desktop">
-<suite id="s1-s1" name="Projeto-Robot" source="c:\Users\dh18j\Desktop\Projeto-Robot">
-<suite id="s1-s1-s1" name="Base" source="c:\Users\dh18j\Desktop\Projeto-Robot\Base.robot">
-<test id="s1-s1-s1-t1" name="Acessar Site Task Manager" line="5">
+<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-04-27T13:46:30.589802" rpa="false" schemaversion="5">
+<suite id="s1" name="Actions" source="C:\Users\dh18j\Desktop\Projeto-Robot\Testes\Actions.robot">
+<test id="s1-t1" name="Fluxo de criação de tarefa" line="5">
+<kw name="Login" owner="Login_Keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-26T10:09:44.167888" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</arg>
-<arg>chrome</arg>
+<msg time="2025-04-27T13:46:30.776271" level="INFO">Opening browser 'edge' to base url 'https://app.todoist.com/auth/login'.</msg>
+<arg>https://app.todoist.com/auth/login</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-26T10:09:44.167888" elapsed="3.639852"/>
+<status status="PASS" start="2025-04-27T13:46:30.776271" elapsed="4.479230"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-26T10:09:47.809248" elapsed="0.046247"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-26T10:09:52.862276" level="INFO">Slept 5 seconds.</msg>
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-26T10:09:47.862011" elapsed="5.000265"/>
+<status status="PASS" start="2025-04-27T13:46:35.255501" elapsed="0.036801"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//input[@name="username"]</arg>
+<arg>${CAMPO_EMAIL}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-26T10:09:52.863219" elapsed="0.026918"/>
+<status status="PASS" start="2025-04-27T13:46:35.292302" elapsed="0.863087"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-26T10:09:52.891143" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name="username"]'.</msg>
-<arg>xpath=//input[@name="username"]</arg>
-<arg>Admin</arg>
+<msg time="2025-04-27T13:46:36.155389" level="INFO">Typing text 'qatestedh@gmail.com' into text field 'xpath=//input[@id='element-0']'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-26T10:09:52.890137" elapsed="0.064411"/>
+<status status="PASS" start="2025-04-27T13:46:36.155389" elapsed="0.159829"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_SENHA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:46:36.315218" elapsed="0.084035"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:36.400413" level="INFO">Typing password into text field 'xpath=//input[@id='element-2']'.</msg>
+<msg time="2025-04-27T13:46:36.429620" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:36.400413" elapsed="0.076234"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:36.478173" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:36.476647" elapsed="0.057043"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:46:39.535680" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:46:36.535198" elapsed="3.000482"/>
+</kw>
+<arg>qatestedh@gmail.com</arg>
+<arg>Leo12345@</arg>
+<status status="PASS" start="2025-04-27T13:46:30.776271" elapsed="8.759409"/>
+</kw>
+<kw name="Add tarefa" owner="Adicionar_Tarefas_Keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVA_TAREFA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:46:39.535680" elapsed="0.445781"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:39.981461" level="INFO">Clicking element 'xpath=//button[@class='fb8d74bb _8c75067a vZhNClH _3930afa0 aa19cb97 _7246d092']'.</msg>
+<arg>${BOTAO_NOVA_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:39.981461" elapsed="0.791422"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:40.773883" level="INFO">Typing text 'Desafio' into text field 'xpath=//p[contains(@class, "is-empty")]'.</msg>
+<arg>${CAMPO_TITULO_TAREFA}</arg>
+<arg>Desafio</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:40.773883" elapsed="0.197890"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:40.973474" level="INFO">Typing text 'Automação de testes' into text field 'xpath=//p[@data-placeholder="Descrição"]'.</msg>
+<arg>${CAMPO_DESCRICAO_TAREFA}</arg>
+<arg>Automação de testes</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:40.971773" elapsed="0.187325"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:41.159098" level="INFO">Clicking element 'xpath=(//div[@class='qVNyhZ0 a83bd4e0 a8d37c6e _6a3e5ade _2f303ac3 fb8d74bb _211eebc7'][normalize-space()='Prioridade'])[1]'.</msg>
+<arg>${SELECT_PRIORIDADE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:41.159098" elapsed="0.079473"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OPCAO_PRIORIDADE_1}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:46:41.238571" elapsed="0.027139"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:41.267295" level="INFO">Clicking element 'xpath=//span[@class="priority_picker_item_name" and contains(text(), 'Prioridade 1')]'.</msg>
+<arg>${OPCAO_PRIORIDADE_1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:41.266685" elapsed="0.065320"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:41.332005" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_SALVAR_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:41.332005" elapsed="0.089808"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:46:44.422240" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:46:41.421813" elapsed="3.000427"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:46:39.535680" elapsed="4.886560"/>
+</kw>
+<kw name="Editar Tarefa" owner="Editar_Tarefas_Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:44.422240" level="INFO">Clicking element 'xpath=//div[@class="task_content"]'.</msg>
+<arg>xpath=//div[@class="task_content"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:44.422240" elapsed="0.173514"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:46:44.595754" elapsed="0.045692"/>
+</kw>
+<kw name="Double Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:44.642442" level="INFO">Double clicking element 'xpath=//div[@aria-label='Nome da tarefa']'.</msg>
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:44.641446" elapsed="0.347081"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:44.988527" level="INFO">Typing text 'Desafios Técnico' into text field 'xpath=//div[@aria-label='Nome da tarefa']'.</msg>
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<arg>${nome_tarefa}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:44.988527" elapsed="0.191777"/>
+</kw>
+<kw name="Double Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:45.180304" level="INFO">Double clicking element 'xpath=(//button[@class='fb8d74bb _56a651f6 _3930afa0 aa19cb97 _1e29d236'])[1]'.</msg>
+<arg>xpath=(//button[@class='fb8d74bb _56a651f6 _3930afa0 aa19cb97 _1e29d236'])[1]</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:45.180304" elapsed="0.331228"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:45.511532" level="INFO">Typing text 'Robot Framework' into text field 'xpath=(//p[@class="is-empty is-editor-empty"])[1]'.</msg>
+<arg>xpath=(//p[@class="is-empty is-editor-empty"])[1]</arg>
+<arg>${nome_subtask}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:45.511532" elapsed="0.232354"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:46:45.744892" elapsed="0.017600"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:45.762492" level="INFO">Clicking element 'xpath=//button[@data-testid="task-editor-submit-button"]'.</msg>
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:45.762492" elapsed="0.128547"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:45.891560" level="INFO">Clicking element 'xpath=//button[@data-testid="task-editor-submit-button"]'.</msg>
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:45.891039" elapsed="0.152165"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:46.043204" level="INFO">Clicking element 'xpath=//button[@aria-label="Fechar tarefa"]'.</msg>
+<arg>xpath=//button[@aria-label="Fechar tarefa"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:46.043204" elapsed="0.107908"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:46:49.151354" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:46:46.151112" elapsed="3.000242"/>
+</kw>
+<arg>Desafios Técnico</arg>
+<arg>Robot Framework</arg>
+<status status="PASS" start="2025-04-27T13:46:44.422240" elapsed="4.729406"/>
+</kw>
+<kw name="Excluir tarefa" owner="Excluir_Tarefas_keywords">
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:49.151646" level="INFO">Simulating Mouse Over on element 'xpath=//button[@data-testid='more_menu']'.</msg>
+<arg>${BOTAO_MAIS_ACOES}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:49.151646" elapsed="0.278294"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:49.429940" level="INFO">Clicking element 'xpath=//button[@data-testid='more_menu']'.</msg>
+<arg>${BOTAO_MAIS_ACOES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:49.429940" elapsed="0.168108"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:49.598048" level="INFO">Clicking element 'xpath=//div[@class="a83bd4e0 a8d37c6e _2f303ac3 fb8d74bb _211eebc7" and contains(text(), 'Excluir')]'.</msg>
+<arg>${OPCAO_EXCLUIR_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:49.598048" elapsed="0.109239"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:46:49.707287" level="INFO">Clicking element 'xpath=//button[@class="fb8d74bb _56a651f6 _3930afa0 _7ea1378e _7246d092"]'.</msg>
+<arg>${BOTAO_CONFIRMAR_EXCLUSAO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:46:49.707287" elapsed="0.065946"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:46:52.773648" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:46:49.773233" elapsed="3.000415"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-26T10:09:52.954548" elapsed="2.272605"/>
+<status status="PASS" start="2025-04-27T13:46:52.773648" elapsed="2.204617"/>
 </kw>
-<status status="PASS" start="2025-04-26T10:09:44.165357" elapsed="11.062736"/>
+<status status="PASS" start="2025-04-27T13:46:49.151646" elapsed="5.826619"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:46:30.775260" elapsed="24.203005"/>
 </test>
-<status status="PASS" start="2025-04-26T10:09:43.977960" elapsed="11.252269"/>
-</suite>
-<status status="PASS" start="2025-04-26T10:09:43.975344" elapsed="11.257139"/>
-</suite>
-<suite id="s1-s2" name="To Do" source="c:\Users\dh18j\Desktop\To Do">
-<suite id="s1-s2-s1" name="Actions" source="c:\Users\dh18j\Desktop\To Do\Actions.robot">
-<test id="s1-s2-s1-t1" name="Abrir App" line="10">
-<kw name="Abrir App" owner="Base">
-<kw name="Open Application" owner="AppiumLibrary">
-<msg time="2025-04-26T10:09:59.452320" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274260&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<msg time="2025-04-26T10:10:03.527928" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274380&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<msg time="2025-04-26T10:10:07.614050" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274830&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<kw name="Capture Page Screenshot" owner="AppiumLibrary">
-<msg time="2025-04-26T10:10:11.652030" level="FAIL">No application is open</msg>
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<status status="FAIL" start="2025-04-26T10:10:11.651522" elapsed="0.007622">No application is open</status>
-</kw>
-<msg time="2025-04-26T10:10:11.659689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg time="2025-04-26T10:10:11.661193" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</msg>
-<arg>http://localhost:4723</arg>
-<arg>automationName=UiAutomator2</arg>
-<arg>platformName=Android</arg>
-<arg>deviceName=moto g(8) play</arg>
-<doc>Opens a new application to given Appium server.
-Capabilities of appium server, Android and iOS,
-Please check https://appium.io/docs/en/2.1/cli/args/
-| *Option*            | *Man.* | *Description*     |
-| remote_url          | Yes    | Appium server url |
-| alias               | no     | alias             |
-| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
-<status status="FAIL" start="2025-04-26T10:09:55.346392" elapsed="16.318323">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
-</kw>
-<status status="FAIL" start="2025-04-26T10:09:55.346392" elapsed="16.318323">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
-</kw>
-<kw name="Nova tarefa" owner="NewTask_Keywords">
-<status status="NOT RUN" start="2025-04-26T10:10:11.664715" elapsed="0.000000"/>
-</kw>
-<kw name="Validar tarefa" owner="Validate_Task">
-<status status="NOT RUN" start="2025-04-26T10:10:11.666534" elapsed="0.000000"/>
-</kw>
-<kw name="Edição" owner="Edit_task">
-<status status="NOT RUN" start="2025-04-26T10:10:11.671752" elapsed="0.000999"/>
-</kw>
-<kw name="Deletar tarefa" owner="Delete_Task">
-<status status="NOT RUN" start="2025-04-26T10:10:11.672751" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2025-04-26T10:09:55.344886" elapsed="16.359842">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
-</test>
-<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
-<kw name="Capture Page Screenshot" owner="AppiumLibrary">
-<msg time="2025-04-26T10:10:11.710385" level="FAIL">No application is open</msg>
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<status status="FAIL" start="2025-04-26T10:10:11.708859" elapsed="0.002535">No application is open</status>
-</kw>
-<msg time="2025-04-26T10:10:11.713094" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg time="2025-04-26T10:10:11.713906" level="FAIL">No application is open</msg>
-<doc>Closes the current application and also close webdriver session.</doc>
-<status status="FAIL" start="2025-04-26T10:10:11.708859" elapsed="0.006554">No application is open</status>
-</kw>
-<status status="FAIL" start="2025-04-26T10:09:55.236529" elapsed="16.478884">Suite teardown failed:
-No application is open</status>
-</suite>
-<status status="FAIL" start="2025-04-26T10:09:55.234000" elapsed="16.483421"/>
-</suite>
-<status status="FAIL" start="2025-04-26T10:09:43.952257" elapsed="27.774214"/>
+<status status="PASS" start="2025-04-27T13:46:30.592335" elapsed="24.387356"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Desktop" id="s1" pass="1" fail="1" skip="0">Desktop</stat>
-<stat name="Projeto-Robot" id="s1-s1" pass="1" fail="0" skip="0">Desktop.Projeto-Robot</stat>
-<stat name="Base" id="s1-s1-s1" pass="1" fail="0" skip="0">Desktop.Projeto-Robot.Base</stat>
-<stat name="To Do" id="s1-s2" pass="0" fail="1" skip="0">Desktop.To Do</stat>
-<stat name="Actions" id="s1-s2-s1" pass="0" fail="1" skip="0">Desktop.To Do.Actions</stat>
+<stat name="Actions" id="s1" pass="1" fail="0" skip="0">Actions</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-26T10:09:59.452320" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274260&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<msg time="2025-04-26T10:10:03.527928" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274380&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<msg time="2025-04-26T10:10:07.614050" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274830&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
-<msg time="2025-04-26T10:10:11.659689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg time="2025-04-26T10:10:11.713094" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
 </errors>
 </robot>

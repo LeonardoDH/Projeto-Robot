@@ -11,3 +11,4 @@ Add tarefa
     Wait Until Element Is Visible    ${OPCAO_PRIORIDADE_1}
     Click Element                    ${OPCAO_PRIORIDADE_1}
     Click Element                    ${BOTAO_SALVAR_TAREFA}
+    Sleep                            3s

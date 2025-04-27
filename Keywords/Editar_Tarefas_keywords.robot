@@ -14,3 +14,4 @@ Editar Tarefa
     Click Element    xpath=//button[@data-testid="task-editor-submit-button"]
     Click Element    xpath=//button[@data-testid="task-editor-submit-button"]
     Click Element    xpath=//button[@aria-label="Fechar tarefa"]
+    Sleep    3s
