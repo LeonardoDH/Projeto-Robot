@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-04-26T10:09:43.801641" rpa="false" schemaversion="5">
+<suite id="s1" name="Desktop" source="c:\Users\dh18j\Desktop">
+<suite id="s1-s1" name="Projeto-Robot" source="c:\Users\dh18j\Desktop\Projeto-Robot">
+<suite id="s1-s1-s1" name="Base" source="c:\Users\dh18j\Desktop\Projeto-Robot\Base.robot">
+<test id="s1-s1-s1-t1" name="Acessar Site Task Manager" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-26T10:09:44.167888" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-26T10:09:44.167888" elapsed="3.639852"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-26T10:09:47.809248" elapsed="0.046247"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-26T10:09:52.862276" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-26T10:09:47.862011" elapsed="5.000265"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T10:09:52.863219" elapsed="0.026918"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T10:09:52.891143" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name="username"]'.</msg>
+<arg>xpath=//input[@name="username"]</arg>
+<arg>Admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T10:09:52.890137" elapsed="0.064411"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-26T10:09:52.954548" elapsed="2.272605"/>
+</kw>
+<status status="PASS" start="2025-04-26T10:09:44.165357" elapsed="11.062736"/>
+</test>
+<status status="PASS" start="2025-04-26T10:09:43.977960" elapsed="11.252269"/>
+</suite>
+<status status="PASS" start="2025-04-26T10:09:43.975344" elapsed="11.257139"/>
+</suite>
+<suite id="s1-s2" name="To Do" source="c:\Users\dh18j\Desktop\To Do">
+<suite id="s1-s2-s1" name="Actions" source="c:\Users\dh18j\Desktop\To Do\Actions.robot">
+<test id="s1-s2-s1-t1" name="Abrir App" line="10">
+<kw name="Abrir App" owner="Base">
+<kw name="Open Application" owner="AppiumLibrary">
+<msg time="2025-04-26T10:09:59.452320" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274260&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<msg time="2025-04-26T10:10:03.527928" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274380&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<msg time="2025-04-26T10:10:07.614050" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274830&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-26T10:10:11.652030" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-26T10:10:11.651522" elapsed="0.007622">No application is open</status>
+</kw>
+<msg time="2025-04-26T10:10:11.659689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-26T10:10:11.661193" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</msg>
+<arg>http://localhost:4723</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=moto g(8) play</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2025-04-26T10:09:55.346392" elapsed="16.318323">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
+</kw>
+<status status="FAIL" start="2025-04-26T10:09:55.346392" elapsed="16.318323">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
+</kw>
+<kw name="Nova tarefa" owner="NewTask_Keywords">
+<status status="NOT RUN" start="2025-04-26T10:10:11.664715" elapsed="0.000000"/>
+</kw>
+<kw name="Validar tarefa" owner="Validate_Task">
+<status status="NOT RUN" start="2025-04-26T10:10:11.666534" elapsed="0.000000"/>
+</kw>
+<kw name="Edição" owner="Edit_task">
+<status status="NOT RUN" start="2025-04-26T10:10:11.671752" elapsed="0.000999"/>
+</kw>
+<kw name="Deletar tarefa" owner="Delete_Task">
+<status status="NOT RUN" start="2025-04-26T10:10:11.672751" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-26T10:09:55.344886" elapsed="16.359842">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274B30&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))</status>
+</test>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-04-26T10:10:11.710385" level="FAIL">No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-04-26T10:10:11.708859" elapsed="0.002535">No application is open</status>
+</kw>
+<msg time="2025-04-26T10:10:11.713094" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-26T10:10:11.713906" level="FAIL">No application is open</msg>
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="FAIL" start="2025-04-26T10:10:11.708859" elapsed="0.006554">No application is open</status>
+</kw>
+<status status="FAIL" start="2025-04-26T10:09:55.236529" elapsed="16.478884">Suite teardown failed:
+No application is open</status>
+</suite>
+<status status="FAIL" start="2025-04-26T10:09:55.234000" elapsed="16.483421"/>
+</suite>
+<status status="FAIL" start="2025-04-26T10:09:43.952257" elapsed="27.774214"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Desktop" id="s1" pass="1" fail="1" skip="0">Desktop</stat>
+<stat name="Projeto-Robot" id="s1-s1" pass="1" fail="0" skip="0">Desktop.Projeto-Robot</stat>
+<stat name="Base" id="s1-s1-s1" pass="1" fail="0" skip="0">Desktop.Projeto-Robot.Base</stat>
+<stat name="To Do" id="s1-s2" pass="0" fail="1" skip="0">Desktop.To Do</stat>
+<stat name="Actions" id="s1-s2-s1" pass="0" fail="1" skip="0">Desktop.To Do.Actions</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-26T10:09:59.452320" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274260&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<msg time="2025-04-26T10:10:03.527928" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274380&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<msg time="2025-04-26T10:10:07.614050" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000215AA274830&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session</msg>
+<msg time="2025-04-26T10:10:11.659689" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-04-26T10:10:11.713094" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>

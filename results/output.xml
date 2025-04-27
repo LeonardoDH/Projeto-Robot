@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-04-27T13:13:16.972519" rpa="false" schemaversion="5">
+<suite id="s1" name="Projeto-Robot" source="C:\Users\dh18j\Desktop\Projeto-Robot">
+<suite id="s1-s1" name="Testes" source="C:\Users\dh18j\Desktop\Projeto-Robot\Testes">
+<suite id="s1-s1-s1" name="Actions" source="C:\Users\dh18j\Desktop\Projeto-Robot\Testes\Actions.robot">
+<test id="s1-s1-s1-t1" name="Fluxo de criação de tarefa" line="5">
+<kw name="Login" owner="Login_Keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:17.184202" level="INFO">Opening browser 'edge' to base url 'https://app.todoist.com/auth/login'.</msg>
+<arg>https://app.todoist.com/auth/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-27T13:13:17.184202" elapsed="4.446771"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-27T13:13:21.630973" elapsed="0.031439"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:21.662412" elapsed="0.876138"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:22.539556" level="INFO">Typing text 'qatestedh@gmail.com' into text field 'xpath=//input[@id='element-0']'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:22.538550" elapsed="0.126905"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_SENHA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:22.665455" elapsed="0.023975"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:22.689430" level="INFO">Typing password into text field 'xpath=//input[@id='element-2']'.</msg>
+<msg time="2025-04-27T13:13:22.711678" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:22.689430" elapsed="0.076370"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:22.765800" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:22.765800" elapsed="0.102758"/>
+</kw>
+<arg>qatestedh@gmail.com</arg>
+<arg>Leo12345@</arg>
+<status status="PASS" start="2025-04-27T13:13:17.184202" elapsed="5.684356"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:13:25.870759" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:13:22.869233" elapsed="3.001526"/>
+</kw>
+<kw name="Add tarefa" owner="Adicionar_Tarefas_Keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVA_TAREFA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:25.872277" elapsed="0.272167"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:26.144958" level="INFO">Clicking element 'xpath=//button[@class='fb8d74bb _8c75067a vZhNClH _3930afa0 aa19cb97 _7246d092']'.</msg>
+<arg>${BOTAO_NOVA_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:26.144958" elapsed="0.832617"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:26.977575" level="INFO">Typing text 'Desafio' into text field 'xpath=//p[contains(@class, "is-empty")]'.</msg>
+<arg>${CAMPO_TITULO_TAREFA}</arg>
+<arg>Desafio</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:26.977575" elapsed="0.207143"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:27.184718" level="INFO">Typing text 'Automação de testes' into text field 'xpath=//p[@data-placeholder="Descrição"]'.</msg>
+<arg>${CAMPO_DESCRICAO_TAREFA}</arg>
+<arg>Automação de testes</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.184718" elapsed="0.169840"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:27.355947" level="INFO">Clicking element 'xpath=(//div[@class='qVNyhZ0 a83bd4e0 a8d37c6e _6a3e5ade _2f303ac3 fb8d74bb _211eebc7'][normalize-space()='Prioridade'])[1]'.</msg>
+<arg>${SELECT_PRIORIDADE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.354558" elapsed="0.081928"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OPCAO_PRIORIDADE_1}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.437048" elapsed="0.026620"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:27.463668" level="INFO">Clicking element 'xpath=//span[@class="priority_picker_item_name" and contains(text(), 'Prioridade 1')]'.</msg>
+<arg>${OPCAO_PRIORIDADE_1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.463668" elapsed="0.066271"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:27.529939" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${BOTAO_SALVAR_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.529939" elapsed="0.117057"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:13:25.870759" elapsed="1.776237"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:13:30.649568" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:13:27.646996" elapsed="3.002572"/>
+</kw>
+<kw name="Editar Tarefa" owner="Editar_Tarefas_Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:30.651877" level="INFO">Clicking element 'xpath=//div[@class="task_content"]'.</msg>
+<arg>xpath=//div[@class="task_content"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:30.649568" elapsed="0.211353"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:30.860921" elapsed="0.069582"/>
+</kw>
+<kw name="Double Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:30.930503" level="INFO">Double clicking element 'xpath=//div[@aria-label='Nome da tarefa']'.</msg>
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:30.930503" elapsed="0.319729"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:31.252277" level="INFO">Typing text 'Desafios Técnico' into text field 'xpath=//div[@aria-label='Nome da tarefa']'.</msg>
+<arg>xpath=//div[@aria-label='Nome da tarefa']</arg>
+<arg>${nome_tarefa}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:31.252277" elapsed="0.228929"/>
+</kw>
+<kw name="Double Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:31.481206" level="INFO">Double clicking element 'xpath=(//button[@class='fb8d74bb _56a651f6 _3930afa0 aa19cb97 _1e29d236'])[1]'.</msg>
+<arg>xpath=(//button[@class='fb8d74bb _56a651f6 _3930afa0 aa19cb97 _1e29d236'])[1]</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:31.481206" elapsed="0.336343"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:31.817549" level="INFO">Typing text 'Robot Framework' into text field 'xpath=(//p[@class="is-empty is-editor-empty"])[1]'.</msg>
+<arg>xpath=(//p[@class="is-empty is-editor-empty"])[1]</arg>
+<arg>${nome_subtask}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:31.817549" elapsed="0.208417"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-27T13:13:32.025966" elapsed="0.018601"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:32.044567" level="INFO">Clicking element 'xpath=//button[@data-testid="task-editor-submit-button"]'.</msg>
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:32.044567" elapsed="0.114231"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:32.160933" level="INFO">Clicking element 'xpath=//button[@data-testid="task-editor-submit-button"]'.</msg>
+<arg>xpath=//button[@data-testid="task-editor-submit-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:32.160805" elapsed="0.149368"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:32.310173" level="INFO">Clicking element 'xpath=//button[@aria-label="Fechar tarefa"]'.</msg>
+<arg>xpath=//button[@aria-label="Fechar tarefa"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:32.310173" elapsed="0.116697"/>
+</kw>
+<arg>Desafios Técnico</arg>
+<arg>Robot Framework</arg>
+<status status="PASS" start="2025-04-27T13:13:30.649568" elapsed="1.777302"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:13:35.427091" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:13:32.426870" elapsed="3.000221"/>
+</kw>
+<kw name="Excluir tarefa" owner="Excluir_Tarefas_keywords">
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:35.427091" level="INFO">Simulating Mouse Over on element 'xpath=//button[@data-testid='more_menu']'.</msg>
+<arg>${BOTAO_MAIS_ACOES}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:35.427091" elapsed="0.278068"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:35.705159" level="INFO">Clicking element 'xpath=//button[@data-testid='more_menu']'.</msg>
+<arg>${BOTAO_MAIS_ACOES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:35.705159" elapsed="0.173645"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:35.879889" level="INFO">Clicking element 'xpath=//div[@class="a83bd4e0 a8d37c6e _2f303ac3 fb8d74bb _211eebc7" and contains(text(), 'Excluir')]'.</msg>
+<arg>${OPCAO_EXCLUIR_TAREFA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:35.879889" elapsed="0.115073"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:13:35.994962" level="INFO">Clicking element 'xpath=//button[@class="fb8d74bb _56a651f6 _3930afa0 _7ea1378e _7246d092"]'.</msg>
+<arg>${BOTAO_CONFIRMAR_EXCLUSAO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:13:35.994962" elapsed="0.082004"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-27T13:13:39.079401" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-27T13:13:36.076966" elapsed="3.002435"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-27T13:13:39.079969" elapsed="2.210024"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:13:35.427091" elapsed="5.862902"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:13:17.181146" elapsed="24.108847"/>
+</test>
+<status status="PASS" start="2025-04-27T13:13:17.000967" elapsed="24.291035"/>
+</suite>
+<status status="PASS" start="2025-04-27T13:13:16.998355" elapsed="24.294664"/>
+</suite>
+<status status="PASS" start="2025-04-27T13:13:16.976577" elapsed="24.318021"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Projeto-Robot" id="s1" pass="1" fail="0" skip="0">Projeto-Robot</stat>
+<stat name="Testes" id="s1-s1" pass="1" fail="0" skip="0">Projeto-Robot.Testes</stat>
+<stat name="Actions" id="s1-s1-s1" pass="1" fail="0" skip="0">Projeto-Robot.Testes.Actions</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
