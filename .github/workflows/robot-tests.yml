@@ -34,7 +34,7 @@ jobs:
       - name: Run Robot Framework Tests
         run: |
           mkdir -p logs
-          xvfb-run robot -d ./logs Testes/Actions.robot
+          robot -d ./logs Testes/Actions.robot
 
       - name: Upload Test Results
         if: always()
