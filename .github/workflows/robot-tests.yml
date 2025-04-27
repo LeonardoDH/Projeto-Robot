@@ -1,49 +1,61 @@
-name: Execute Robot Framework Tests
-
-on:
-  push:
-    branches:
-      - main  
-  pull_request:
-    branches:
-      - main  
+name: Run Robot Framework Tests
+run-name: On Push - Robot Tests
+on: [push, pull_request]
 
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  robot-tests:
+    runs-on: ubuntu-20.04
+    permissions: write-all
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      - name: Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install robotframework
+          pip install robotframework-seleniumlibrary
 
-    - name: Install dependencies
-      run: |
-        pip install robotframework
-        pip install robotframework-seleniumlibrary
+      - name: Install Chrome and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
+          sudo apt-get install -y chromium-chromedriver
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
-    - name: Install Chrome and ChromeDriver
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget unzip
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
-        sudo apt-get install -y chromium-chromedriver
+      - name: Run Robot Framework Tests
+        run: |
+          mkdir -p logs
+          xvfb-run robot -d ./logs Testes/Actions.robot
 
-    - name: Run Robot Framework tests
-      run: |
-        robot --variable BROWSER:chrome Testes/Actions.robot
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: results
+          path: ./logs
+          if-no-files-found: ignore
+          retention-days: 2
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v3
-      with:
-        name: robot-results
-        path: |
-          output.xml
-          log.html
-          report.html
+      - name: Download Test Results
+        if: always()
+        uses: actions/download-artifact@v3
+        with:
+          name: results
+          path: ./logs
+
+      - name: Send Robot Report
+        if: always()
+        uses: joonvena/robotframework-reporter-action@v2.1
+        with:
+          report_path: ./logs
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+          show_passed_tests: false
