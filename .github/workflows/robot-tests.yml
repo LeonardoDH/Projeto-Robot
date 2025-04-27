@@ -26,17 +26,21 @@ jobs:
       run: |
         pip install robotframework
         pip install robotframework-seleniumlibrary
-        # Instalar o WebDriver para o navegador (exemplo: ChromeDriver)
+
+    - name: Install Chrome and ChromeDriver
+      run: |
         sudo apt-get update
-        sudo apt-get install -y chromium-browser chromium-chromedriver
-        export PATH=$PATH:/usr/lib/chromium-browser/
+        sudo apt-get install -y wget unzip
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
+        sudo apt-get install -y chromium-chromedriver
 
     - name: Run Robot Framework tests
       run: |
-        robot --variable BROWSER:chrome --variable USER_DATA_DIR:/tmp/chrome-data Testes/Actions.robot
+        robot --variable BROWSER:chrome Testes/Actions.robot
 
     - name: Upload test results
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: robot-results
         path: |
