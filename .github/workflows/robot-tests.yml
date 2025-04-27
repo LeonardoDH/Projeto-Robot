@@ -33,7 +33,7 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        robot --variable BROWSER:edge Testes/Actions.robot
+        robot --variable BROWSER:chrome --variable USER_DATA_DIR:/tmp/chrome-data Testes/Actions.robot
 
     - name: Upload test results
       uses: actions/upload-pages-artifact@v3
