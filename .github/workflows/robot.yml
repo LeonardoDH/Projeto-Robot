@@ -1,0 +1,45 @@
+name: Execute Robot Framework Tests
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install robotframework
+        pip install robotframework-seleniumlibrary
+        # Instalar o WebDriver para o navegador (exemplo: ChromeDriver)
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+        export PATH=$PATH:/usr/lib/chromium-browser/
+
+    - name: Run Robot Framework tests
+      run: |
+        robot Testes/Actions.robot
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: robot-results
+        path: |
+          output.xml
+          log.html
+          report.html
