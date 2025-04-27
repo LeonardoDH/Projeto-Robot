@@ -5,60 +5,66 @@ on: [push, pull_request]
 jobs:
   robot-tests:
     runs-on: ubuntu-22.04
-    permissions: write-all
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Python
+      - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Install Requirements
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install robotframework
           pip install robotframework-seleniumlibrary
-          
-      - name: Create logs folder
+          pip install webdrivermanager
+
+      - name: Debug - List project structure
+        run: |
+          ls -R
+          pwd
+
+      - name: Set up Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 'latest'
+
+      - name: Verify Chrome installation
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Create logs directory
         run: mkdir -p logs
 
-      - name: Install Chrome and ChromeDriver
+      - name: Run Robot Framework tests
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
-          sudo apt-get install -y chromium-chromedriver
-          export PATH=$PATH:/usr/lib/chromium-browser/
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1024x768x16 &
+          robot --variable BROWSER:headlesschrome \
+                --variable WINDOW_WIDTH:1920 \
+                --variable WINDOW_HEIGHT:1080 \
+                -d ./logs Testes/Actions.robot
 
-      - name: Run Robot Framework Tests
-        run: |
-          mkdir -p logs
-          robot -d ./logs Testes/Actions.robot
-
-      - name: Upload Test Results
+      - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: results
+          name: robot-results
           path: ./logs
-          if-no-files-found: ignore
           retention-days: 2
 
-      - name: Download Test Results
-        if: always()
-        uses: actions/download-artifact@v4
-        with:
-          name: results
-          path: ./logs
-
-      - name: Send Robot Report
+      - name: Generate test report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.1
         with:
           report_path: ./logs
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-          show_passed_tests: false
+          show_passed_tests: true
