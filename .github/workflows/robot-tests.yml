@@ -21,6 +21,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install robotframework
           pip install robotframework-seleniumlibrary
+          
+      - name: Create logs folder
+        run: mkdir -p logs
 
       - name: Install Chrome and ChromeDriver
         run: |
